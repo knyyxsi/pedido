@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Tenho algo pra te perguntar…</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 520px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 28px;
+  text-align: center;
+  animation: fade 1s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+p {
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 1.4em;
+}
+
+button {
+  margin-top: 25px;
+  padding: 12px 26px;
+  font-size: 1em;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: #ff4d6d;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.opcoes button {
+  width: 120px;
+  margin: 15px 10px;
+}
+
+.sim { background: #4caf50; }
+.nao { background: #555; }
+
+iframe { display: none; }
+</style>
+</head>
+
+<body>
+
+<!-- Música BK – Amanhecer -->
+<iframe src="https://www.youtube.com/embed/7g5dKJ0FjKw?autoplay=1&loop=1&playlist=7g5dKJ0FjKw"></iframe>
+
+<div class="container" id="p1">
+<p>
+Desde o dia em que a gente começou a conversar, algo em mim mudou.<br>
+Não sei exatamente o que foi, mas sei que quero descobrir cada detalhe disso junto com você.
+</p>
+<button onclick="next(2)">Continuar</button>
+</div>
+
+<div class="container" id="p2" style="display:none">
+<p>
+Sempre que estou com você, parece que o mundo lá fora fica em silêncio.<br>
+Tudo desacelera, o tempo passa diferente e, por alguns momentos, só existe a gente.
+</p>
+<button onclick="next(3)">Continuar</button>
+</div>
+
+<div class="container" id="p3" style="display:none">
+<p>
+O seu jeitinho me prende sem esforço.<br>
+O seu sorriso, o seu olhar… tudo em você tem algo que me faz esquecer do resto do mundo.
+</p>
+<button onclick="next(4)">Continuar</button>
+</div>
+
+<div class="container" id="p4" style="display:none">
+<p>
+E o mais incrível é que, com você, tudo é novo.<br>
+Você não me lembra ninguém que já passou pela minha vida,<br>
+e eu gosto disso… porque o que sinto por você é só nosso.
+</p>
+<button onclick="next(5)">Continuar</button>
+</div>
+
+<div class="container" id="p5" style="display:none">
+<p>
+Eu sei que a distância às vezes assusta.<br>
+Sei que não é simples e que pode dar medo.<br>
+Mas mesmo longe, o que sinto por você é real, calmo e sincero.<br>
+Não quero pressa, nem cobranças… só viver isso com você, do nosso jeito.
+</p>
+<button onclick="next(6)">Continuar</button>
+</div>
+
+<div class="container" id="p6" style="display:none">
+<p>
+O que eu sinto por você é algo que quero viver só entre nós dois,<br>
+sem interferências, sem pressão, sem opiniões de fora.<br>
+Quero que você pense com calma, do seu jeito,<br>
+e dê a resposta que fizer seu coração ficar em paz.
+</p>
+<button onclick="next(7)">Continuar</button>
+</div>
+
+<div class="container" id="p7" style="display:none">
+<h1>Quer namorar comigo? 💙</h1>
+
+<form action="https://formspree.io/f/mbdrnjdj" method="POST">
+<input type="hidden" name="resposta" id="resposta">
+<div class="opcoes">
+<button type="submit" class="sim" onclick="send('SIM')">Sim 💖</button>
+<button type="submit" class="nao" onclick="send('NÃO')">Não</button>
+</div>
+</form>
+</div>
+
+<script>
+function next(n) {
+  for (let i = 1; i <= 7; i++) {
+    document.getElementById("p" + i).style.display = "none";
+  }
+  document.getElementById("p" + n).style.display = "block";
+}
+
+function send(val) {
+  document.getElementById("resposta").value = val;
+}
+</script>
+
+</body>
+</html>
