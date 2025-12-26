@@ -33,9 +33,14 @@
       display: flex;
     }
 
+    /* libera scroll só na última página */
+    .page.final {
+      overflow-y: auto;
+    }
+
     h1 {
       font-size: 1.9rem;
-      margin-bottom: 20px;
+      margin: 20px 0;
       color: #4a2c3a;
     }
 
@@ -47,7 +52,7 @@
     }
 
     button {
-      margin-top: 30px;
+      margin-top: 25px;
       padding: 14px 30px;
       border: none;
       border-radius: 30px;
@@ -66,7 +71,7 @@
     .btns {
       display: flex;
       gap: 20px;
-      margin-top: 25px;
+      margin: 30px 0;
     }
 
     .no {
@@ -164,8 +169,8 @@
     <button onclick="next()">Continuar</button>
   </div>
 
-  <!-- Página 5 (pedido + vídeo) -->
-  <div class="page">
+  <!-- Página 5 FINAL -->
+  <div class="page final">
     <video id="finalVideo" class="video" muted loop playsinline>
       <source src="video.mp4" type="video/mp4">
     </video>
@@ -206,7 +211,7 @@
       current++;
       pages[current].classList.add('active');
 
-      // quando chegar na última página, toca o vídeo
+      // toca o vídeo na última página
       if (current === pages.length - 1) {
         const v = document.getElementById("finalVideo");
         if (v) {
