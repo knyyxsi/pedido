@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #2b0033, #0f0014);
+  background: linear-gradient(135deg, #120018, #1b001f);
   color: white;
   overflow: hidden;
 }
@@ -45,7 +45,7 @@ h1 {
 
 button {
   margin-top: 25px;
-  padding: 12px 32px;
+  padding: 12px 30px;
   font-size: 1rem;
   border: none;
   border-radius: 25px;
@@ -64,19 +64,19 @@ button:hover {
   margin-left: 10px;
 }
 
-/* Flores */
-.flower {
+/* Rosas flutuando */
+.rose {
   position: absolute;
-  bottom: -40px;
-  font-size: 18px;
-  animation: floatUp 12s linear infinite;
+  bottom: -50px;
+  font-size: 20px;
+  animation: float 10s linear infinite;
   opacity: 0.6;
 }
 
-@keyframes floatUp {
+@keyframes float {
   0% { transform: translateY(0); opacity: 0; }
   10% { opacity: 0.6; }
-  100% { transform: translateY(-120vh); opacity: 0; }
+  100% { transform: translateY(-110vh); opacity: 0; }
 }
 
 @keyframes fade {
@@ -88,13 +88,14 @@ button:hover {
 
 <body>
 
-<!-- Música (SEM ANÚNCIO) -->
+<!-- Música local (SEM ANÚNCIO) -->
 <audio id="music" loop>
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
 
+<!-- Página 1 -->
 <div class="page active">
   <p>
     Desde o dia em que a gente começou a conversar,<br>
@@ -103,45 +104,36 @@ button:hover {
     mas quero descobrir tudo isso<br>
     junto com você.
   </p>
-  <button onclick="iniciar()">Continuar</button>
+  <button onclick="startMusic(); nextPage()">Continuar</button>
 </div>
 
 <div class="page">
   <p>
-    Estar com você faz tudo parecer diferente.<br>
-    Quando estou ao seu lado,<br>
-    o mundo simplesmente some.
+    Estar com você faz tudo parecer<br>
+    leve, diferente, surreal.<br><br>
+    É como se o mundo ficasse em silêncio<br>
+    só pra gente existir ali.
   </p>
   <button onclick="nextPage()">Continuar</button>
 </div>
 
 <div class="page">
   <p>
-    Seu sorriso me prende,<br>
-    seu olhar me acalma,<br>
-    e o seu jeitinho<br>
-    faz tudo ser novo.
+    Eu quero algo só entre nós dois.<br>
+    Sem interferência de ninguém,<br>
+    sem opiniões de fora,<br>
+    só verdade, cuidado e sentimento.
   </p>
   <button onclick="nextPage()">Continuar</button>
 </div>
 
 <div class="page">
   <p>
-    Mesmo com a distância,<br>
-    o que eu sinto é real.<br><br>
-    Quero algo só entre nós dois,<br>
-    sem interferência de ninguém,<br>
-    só verdade e sentimento.
-  </p>
-  <button onclick="nextPage()">Continuar</button>
-</div>
-
-<div class="page">
-  <p>
-    Pensa com calma,<br>
-    do seu jeito.<br><br>
-    Eu vou respeitar<br>
-    qualquer resposta.
+    Quero que você pense com calma,<br>
+    do seu jeito,<br>
+    sem pressão alguma.<br><br>
+    E me dê a resposta que deixar<br>
+    seu coração em paz.
   </p>
   <button onclick="nextPage()">Continuar</button>
 </div>
@@ -163,30 +155,31 @@ button:hover {
 </div>
 
 <script>
-let current = 0;
+let currentPage = 0;
 const pages = document.querySelectorAll(".page");
 
 function nextPage() {
-  pages[current].classList.remove("active");
-  current++;
-  pages[current].classList.add("active");
+  pages[currentPage].classList.remove("active");
+  currentPage++;
+  pages[currentPage].classList.add("active");
 }
 
-function iniciar() {
-  document.getElementById("music").play();
-  nextPage();
+function startMusic() {
+  const music = document.getElementById("music");
+  music.play();
 }
 
-/* flores */
+/* Criar rosas */
 setInterval(() => {
-  const f = document.createElement("div");
-  f.className = "flower";
-  f.innerHTML = Math.random() > 0.5 ? "🌸" : "🌹";
-  f.style.left = Math.random() * 100 + "vw";
-  f.style.fontSize = (14 + Math.random() * 22) + "px";
-  document.body.appendChild(f);
-  setTimeout(() => f.remove(), 12000);
-}, 700);
+  const rose = document.createElement("div");
+  rose.className = "rose";
+  rose.innerHTML = "🌹";
+  rose.style.left = Math.random() * 100 + "vw";
+  rose.style.fontSize = (15 + Math.random() * 20) + "px";
+  document.body.appendChild(rose);
+
+  setTimeout(() => rose.remove(), 10000);
+}, 600);
 </script>
 
 </body>
