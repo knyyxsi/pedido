@@ -1,234 +1,193 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Tenho algo pra te perguntar…</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #2b0033, #0f0014);
+  color: white;
+  overflow: hidden;
+}
 
-    body {
-      background: linear-gradient(180deg, #fdeff2, #f8d7e5);
-      height: 100vh;
-      overflow: hidden;
-    }
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
 
-    .page {
-      display: none;
-      height: 100vh;
-      padding: 30px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+.page {
+  display: none;
+  max-width: 600px;
+  padding: 20px;
+  animation: fade 1s ease;
+}
 
-    .page.active {
-      display: flex;
-    }
+.page.active {
+  display: block;
+}
 
-    h1 {
-      font-size: 1.9rem;
-      margin-bottom: 20px;
-      color: #4a2c3a;
-    }
+p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
 
-    p {
-      font-size: 1.1rem;
-      max-width: 650px;
-      color: #4a2c3a;
-      line-height: 1.6;
-    }
+h1 {
+  font-size: 1.9rem;
+}
 
-    button {
-      margin-top: 30px;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 30px;
-      background: #e75480;
-      color: #fff;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+button {
+  margin-top: 25px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: #ff4d6d;
+  color: white;
+  transition: 0.3s;
+}
 
-    button:hover {
-      transform: scale(1.05);
-      background: #d6456f;
-    }
+button:hover {
+  background: #ff1f4b;
+}
 
-    .btns {
-      display: flex;
-      gap: 20px;
-      margin-top: 25px;
-    }
+.btn-no {
+  background: #555;
+  margin-left: 10px;
+}
 
-    .no {
-      background: #999;
-    }
+/* Flores */
+.flower {
+  position: absolute;
+  bottom: -40px;
+  font-size: 18px;
+  animation: floatUp 12s linear infinite;
+  opacity: 0.6;
+}
 
-    /* Vídeo */
-    .video {
-      width: 260px;
-      max-width: 85%;
-      border-radius: 20px;
-      margin: 20px 0;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-    }
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
 
-    /* Volume */
-    .volume {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      opacity: 0.6;
-    }
-
-    /* Flores */
-    .flower {
-      position: absolute;
-      top: -50px;
-      font-size: 22px;
-      animation: fall linear infinite;
-      opacity: 0.7;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(360deg);
-      }
-    }
-  </style>
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Música -->
-  <audio id="music" loop>
-    <source src="musica.mp3" type="audio/mpeg">
-  </audio>
+<!-- Música (SEM ANÚNCIO) -->
+<audio id="music" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Página 1 -->
-  <div class="page active">
-    <h1>Oi…</h1>
-    <p>
-      Desde o dia em que a gente começou a conversar,
-      eu senti que algo em mim tinha mudado.
-      Não sei exatamente o que mudou em mim,
-      mas pretendo descobrir isso junto com você.
-    </p>
-    <button onclick="start()">Continuar</button>
-  </div>
+<div class="container">
 
-  <!-- Página 2 -->
-  <div class="page">
-    <p>
-      Eu não sei explicar em palavras tudo o que sinto,
-      mas sei que estar com você faz tudo parecer surreal.
-      Sempre que estou com você,
-      eu esqueço do mundo.
-    </p>
-    <button onclick="next()">Continuar</button>
-  </div>
+<div class="page active">
+  <p>
+    Desde o dia em que a gente começou a conversar,<br>
+    eu senti que algo em mim tinha mudado.<br><br>
+    Não sei exatamente o que mudou,<br>
+    mas quero descobrir tudo isso<br>
+    junto com você.
+  </p>
+  <button onclick="iniciar()">Continuar</button>
+</div>
 
-  <!-- Página 3 -->
-  <div class="page">
-    <p>
-      Você me prende com o seu sorriso,
-      com o seu olhar,
-      com o seu jeitinho.
-      <br><br>
-      O mais incrível é que com você tudo é novo.
-      Você não me lembra ninguém que já passou pela minha vida…
-      e eu gosto muito disso.
-    </p>
-    <button onclick="next()">Continuar</button>
-  </div>
+<div class="page">
+  <p>
+    Estar com você faz tudo parecer diferente.<br>
+    Quando estou ao seu lado,<br>
+    o mundo simplesmente some.
+  </p>
+  <button onclick="nextPage()">Continuar</button>
+</div>
 
-  <!-- Página 4 -->
-  <div class="page">
-    <p>
-      Mesmo com a distância,
-      o que eu sinto por você é real.
-      Eu quero algo simples,
-      verdadeiro,
-      só entre eu e você —
-      sem interferência de ninguém.
-    </p>
-    <button onclick="next()">Continuar</button>
-  </div>
+<div class="page">
+  <p>
+    Seu sorriso me prende,<br>
+    seu olhar me acalma,<br>
+    e o seu jeitinho<br>
+    faz tudo ser novo.
+  </p>
+  <button onclick="nextPage()">Continuar</button>
+</div>
 
-  <!-- Página 5 (pedido + vídeo) -->
-  <div class="page">
-    <video class="video" autoplay muted loop playsinline>
-      <source src="video.mp4" type="video/mp4">
-    </video>
+<div class="page">
+  <p>
+    Mesmo com a distância,<br>
+    o que eu sinto é real.<br><br>
+    Quero algo só entre nós dois,<br>
+    sem interferência de ninguém,<br>
+    só verdade e sentimento.
+  </p>
+  <button onclick="nextPage()">Continuar</button>
+</div>
 
-    <p>
-      Se você falar que <strong>SIM</strong>,
-      a gente pode ser igual esses macaquinhos 🐒💞
-    </p>
+<div class="page">
+  <p>
+    Pensa com calma,<br>
+    do seu jeito.<br><br>
+    Eu vou respeitar<br>
+    qualquer resposta.
+  </p>
+  <button onclick="nextPage()">Continuar</button>
+</div>
 
-    <h1>Você quer namorar comigo?</h1>
+<div class="page">
+  <h1>Quer namorar comigo? 💙</h1>
 
-    <div class="btns">
-      <button onclick="resposta('SIM')">Sim</button>
-      <button class="no" onclick="resposta('NÃO')">Não</button>
-    </div>
-  </div>
+  <form action="https://formspree.io/f/mbdrnjdj" method="POST">
+    <input type="hidden" name="resposta" value="Sim">
+    <button type="submit">Sim 💕</button>
+  </form>
 
-  <!-- Controle de volume -->
-  <div class="volume">
-    <input type="range" min="0" max="1" step="0.01" value="0.25"
-           oninput="music.volume = this.value">
-  </div>
+  <form action="https://formspree.io/f/mbdrnjdj" method="POST" style="display:inline;">
+    <input type="hidden" name="resposta" value="Não">
+    <button class="btn-no" type="submit">Não</button>
+  </form>
+</div>
 
-  <script>
-    const pages = document.querySelectorAll('.page');
-    let current = 0;
-    const music = document.getElementById("music");
+</div>
 
-    function start() {
-      music.volume = 0.25;
-      music.play();
-      next();
-      flowers();
-    }
+<script>
+let current = 0;
+const pages = document.querySelectorAll(".page");
 
-    function next() {
-      pages[current].classList.remove('active');
-      current++;
-      pages[current].classList.add('active');
-    }
+function nextPage() {
+  pages[current].classList.remove("active");
+  current++;
+  pages[current].classList.add("active");
+}
 
-    function resposta(valor) {
-      fetch("https://formspree.io/f/mbdrnjdj", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ resposta: valor })
-      });
-      alert("Resposta enviada 💌");
-    }
+function iniciar() {
+  document.getElementById("music").play();
+  nextPage();
+}
 
-    function flowers() {
-      setInterval(() => {
-        const f = document.createElement("div");
-        f.classList.add("flower");
-        f.innerText = Math.random() > 0.5 ? "🌸" : "🌹";
-        f.style.left = Math.random() * 100 + "vw";
-        f.style.animationDuration = 5 + Math.random() * 5 + "s";
-        document.body.appendChild(f);
-        setTimeout(() => f.remove(), 10000);
-      }, 500);
-    }
-  </script>
+/* flores */
+setInterval(() => {
+  const f = document.createElement("div");
+  f.className = "flower";
+  f.innerHTML = Math.random() > 0.5 ? "🌸" : "🌹";
+  f.style.left = Math.random() * 100 + "vw";
+  f.style.fontSize = (14 + Math.random() * 22) + "px";
+  document.body.appendChild(f);
+  setTimeout(() => f.remove(), 12000);
+}, 700);
+</script>
 
 </body>
 </html>
