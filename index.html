@@ -1,148 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #2b0033, #0f0014);
+  color: white;
+  overflow: hidden;
+}
 
-    .page {
-      display: none;
-      max-width: 600px;
-      padding: 20px;
-      animation: fade 1s ease;
-    }
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
 
-    .page.active {
-      display: block;
-    }
+.page {
+  display: none;
+  max-width: 600px;
+  padding: 20px;
+  animation: fade 1s ease;
+}
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-    }
+.page.active {
+  display: block;
+}
 
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
+p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
 
-    button {
-      margin-top: 25px;
-      padding: 12px 30px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      background: #ff4d6d;
-      color: white;
-      transition: 0.3s;
-    }
+h1 {
+  font-size: 1.9rem;
+}
 
-    button:hover {
-      background: #ff1f4b;
-    }
+button {
+  margin-top: 25px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: #ff4d6d;
+  color: white;
+  transition: 0.3s;
+}
 
-    .btn-no {
-      background: #555;
-      margin-left: 10px;
-    }
+button:hover {
+  background: #ff1f4b;
+}
 
-    @keyframes fade {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+.btn-no {
+  background: #555;
+  margin-left: 10px;
+}
+
+/* Flores */
+.flower {
+  position: absolute;
+  bottom: -40px;
+  font-size: 18px;
+  animation: floatUp 12s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
 </head>
 
 <body>
 
-<!-- Música -->
-<iframe id="music" width="0" height="0" src="" allow="autoplay"></iframe>
+<!-- Música (SEM ANÚNCIO) -->
+<audio id="music" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
-<!-- Página 1 -->
+<div class="container">
+
 <div class="page active">
   <p>
-    Desde o dia em que a gente começou a conversar,  
-    eu senti que algo em mim tinha mudado.  
-    Não sei exatamente o que mudou em mim,  
-    mas pretendo descobrir tudo isso  
+    Desde o dia em que a gente começou a conversar,<br>
+    eu senti que algo em mim tinha mudado.<br><br>
+    Não sei exatamente o que mudou,<br>
+    mas quero descobrir tudo isso<br>
     junto com você.
   </p>
-  <button onclick="tocarMusica(); nextPage()">Continuar</button>
+  <button onclick="iniciar()">Continuar</button>
 </div>
 
-<!-- Página 2 -->
 <div class="page">
   <p>
-    Eu não sei explicar em palavras tudo o que sinto,  
-    mas sei que estar com você faz tudo parecer  
-    algo tão surreal.
+    Estar com você faz tudo parecer diferente.<br>
+    Quando estou ao seu lado,<br>
+    o mundo simplesmente some.
   </p>
   <button onclick="nextPage()">Continuar</button>
 </div>
 
-<!-- Página 3 -->
 <div class="page">
   <p>
-    Sempre que estou com você,  
-    eu esqueço do mundo.  
-    Seu sorriso me prende,  
-    seu olhar me acalma,  
-    e o seu jeitinho…  
-    faz tudo ser diferente.
+    Seu sorriso me prende,<br>
+    seu olhar me acalma,<br>
+    e o seu jeitinho<br>
+    faz tudo ser novo.
   </p>
   <button onclick="nextPage()">Continuar</button>
 </div>
 
-<!-- Página 4 -->
 <div class="page">
   <p>
-    O mais incrível é que com você tudo é novo.  
-    Você não me lembra ninguém que já passou pela minha vida,  
-    e eu gosto disso.  
-    Gosto porque é você.
+    Mesmo com a distância,<br>
+    o que eu sinto é real.<br><br>
+    Quero algo só entre nós dois,<br>
+    sem interferência de ninguém,<br>
+    só verdade e sentimento.
   </p>
   <button onclick="nextPage()">Continuar</button>
 </div>
 
-<!-- Página 5 -->
 <div class="page">
   <p>
-    Mesmo com a distância,  
-    o que eu sinto não diminui.  
-    Eu quero algo só entre nós dois,  
-    sem interferência de ninguém,  
-    só verdade, cuidado e sentimento.
+    Pensa com calma,<br>
+    do seu jeito.<br><br>
+    Eu vou respeitar<br>
+    qualquer resposta.
   </p>
   <button onclick="nextPage()">Continuar</button>
 </div>
 
-<!-- Página 6 -->
-<div class="page">
-  <p>
-    O que eu sinto por você é algo que quero viver só entre nós dois,<br>
-    sem interferências, sem pressão, sem opiniões de fora.<br>
-    Quero que você pense com calma, do seu jeito,<br>
-    e dê a resposta que fizer seu coração ficar em paz.
-  </p>
-  <button onclick="nextPage()">Continuar</button>
-</div>
-
-<!-- Página Final -->
 <div class="page">
   <h1>Quer namorar comigo? 💙</h1>
 
@@ -157,20 +160,33 @@
   </form>
 </div>
 
+</div>
+
 <script>
-  let currentPage = 0;
-  const pages = document.querySelectorAll('.page');
+let current = 0;
+const pages = document.querySelectorAll(".page");
 
-  function nextPage() {
-    pages[currentPage].classList.remove('active');
-    currentPage++;
-    pages[currentPage].classList.add('active');
-  }
+function nextPage() {
+  pages[current].classList.remove("active");
+  current++;
+  pages[current].classList.add("active");
+}
 
-  function tocarMusica() {
-    const iframe = document.getElementById("music");
-    iframe.src = "https://www.youtube.com/embed/N5TVWZfRfIs?autoplay=1&loop=1&playlist=N5TVWZfRfIs";
-  }
+function iniciar() {
+  document.getElementById("music").play();
+  nextPage();
+}
+
+/* flores */
+setInterval(() => {
+  const f = document.createElement("div");
+  f.className = "flower";
+  f.innerHTML = Math.random() > 0.5 ? "🌸" : "🌹";
+  f.style.left = Math.random() * 100 + "vw";
+  f.style.fontSize = (14 + Math.random() * 22) + "px";
+  document.body.appendChild(f);
+  setTimeout(() => f.remove(), 12000);
+}, 700);
 </script>
 
 </body>
